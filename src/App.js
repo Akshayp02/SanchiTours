@@ -1,9 +1,13 @@
+import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
    <>
-   <h1 className='text-center text-rose-600 text-18  text-2xl rounded-md' >Welcome to the Sanchi Tour's And Travals</h1>
-
+ <Navbar/>
+  <HeroSection/>
+  <Footer/>
    </>
   );
 }

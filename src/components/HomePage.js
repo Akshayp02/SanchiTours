@@ -1,0 +1,17 @@
+import React from "react";
+import HeroSection from "./HeroSection";
+import HowItWorks from "./HowItWorks";
+
+
+const HomePage = () => {
+  return (
+    <div className="flex flex-col min-h-screen bg-gray-50 text-gray-800">
+      <main className="flex-grow">
+        <HeroSection />
+        <HowItWorks/>
+      </main>      
+    </div>
+  );
+};
+
+export default HomePage;

@@ -2,12 +2,23 @@ import React, { useState } from "react";
 import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
 import fev_icon from "../assets/sanchi_fev.png";
+import InitiateWhatsApp from "../services/initiatewhatsapp";  
+import InitiateCall from "../services/initiatecall";  
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleWhatsAppClick = () => {
+    // You can pass customer name if required, e.g., "John Doe"
+    InitiateWhatsApp.sendMessageToSelf("Akshayfron sanchi car rental");
+  };
+
+  const handleCallClick = () => {
+    InitiateCall.dialNumber(); // Trigger the call function
   };
 
   return (
@@ -18,39 +29,33 @@ const Navbar = () => {
 
       {/* Desktop Navigation Links */}
       <div className="hidden md:flex items-center space-x-6 z-20">
-        <a
-          href="#home"
-          className="text-gray-600 text-lg font-semibold hover:text-button"
-        >
+        <a href="#home" className="text-gray-600 text-lg font-semibold hover:text-button">
           Home
         </a>
-        <a
-          href="#info"
-          className="text-gray-600 text-lg font-semibold hover:text-button"
-        >
+        <a href="#info" className="text-gray-600 text-lg font-semibold hover:text-button">
           Services
         </a>
-        <a
-          href="#about"
-          className="text-gray-600 text-lg font-semibold hover:text-button"
-        >
+        <a href="#about" className="text-gray-600 text-lg font-semibold hover:text-button">
           About us
         </a>
-        <a
-          href="#contact"
-          className="text-gray-600 text-lg font-semibold hover:text-button"
-        >
+        <a href="#contact" className="text-gray-600 text-lg font-semibold hover:text-button">
           Contact us
         </a>
       </div>
 
       {/* Desktop Buttons */}
       <div className="hidden md:flex items-center space-x-4 z-20">
-        <button className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-gray-900 text-black rounded hover:bg-button hover:border-button hover:text-white">
+        <button
+          onClick={handleWhatsAppClick}
+          className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-gray-900 text-black rounded hover:bg-button hover:border-button hover:text-white"
+        >
           <FaWhatsapp className="text-xl self-auto" />
           <span>WhatsApp</span>
         </button>
-        <button className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-button bg-button text-black rounded hover:bg-button hover:text-white">
+        <button
+          onClick={handleCallClick}
+          className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-button bg-button text-black rounded hover:bg-button hover:text-white"
+        >
           <FiPhoneCall className="text-xl" />
           <span>Call Us</span>
         </button>
@@ -67,37 +72,31 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="absolute top-[80px] left-0 w-full bg-white shadow-lg z-10 p-5">
           <div className="flex flex-col items-center space-y-4">
-            <a
-              href="#home"
-              className="text-gray-600 text-lg font-semibold hover:text-button"
-            >
+            <a href="#home" className="text-gray-600 text-lg font-semibold hover:text-button">
               Home
             </a>
-            <a
-              href="#info"
-              className="text-gray-600 text-lg font-semibold hover:text-button"
-            >
+            <a href="#info" className="text-gray-600 text-lg font-semibold hover:text-button">
               Services
             </a>
-            <a
-              href="#about"
-              className="text-gray-600 text-lg font-semibold hover:text-button"
-            >
+            <a href="#about" className="text-gray-600 text-lg font-semibold hover:text-button">
               About us
             </a>
-            <a
-              href="#contact"
-              className="text-gray-600 text-lg font-semibold hover:text-button"
-            >
+            <a href="#contact" className="text-gray-600 text-lg font-semibold hover:text-button">
               Contact us
             </a>
 
-            <button className="flex items-center space-x-2 px-6 py-2 text-lg bg-button text-black rounded hover:bg-button hover:border-button hover:text-white">
+            <button
+              onClick={handleCallClick}
+              className="flex items-center space-x-2 px-6 py-2 text-lg bg-button text-black rounded hover:bg-button hover:border-button hover:text-white"
+            >
               <FiPhoneCall className="text-xl" />
               <span>Call Us</span>
             </button>
 
-            <button className="flex items-center  space-x-2 px-6 py-2 text-lg border-2 border-black text-black rounded hover:bg-button hover:border-button hover:text-white">
+            <button
+              onClick={handleWhatsAppClick}
+              className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-black text-black rounded hover:bg-button hover:border-button hover:text-white"
+            >
               <FaWhatsapp className="text-xl self-auto" />
               <span>WhatsApp</span>
             </button>

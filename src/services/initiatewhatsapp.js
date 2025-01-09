@@ -1,7 +1,7 @@
 
 
 class InitiateWhatsApp {
-   static sendMessageToSelf(customerName) {
+  static sendMessageToSelf(customerName) {
     if (!customerName) {
       console.error("Customer name is required");
       return;
@@ -12,8 +12,8 @@ class InitiateWhatsApp {
       `Inquiry: Customer Name - ${customerName}`
     );
     const whatsappURL = `https://wa.me/${process.env.REACT_APP_WHATSAPP_NUMBER}?text=${message}`;
-    window.open(whatsappURL, '_blank');
-    }
+    window.location.href = whatsappURL;
+  }
 
   // Function to send a pre-filled message via WhatsApp to any given mobile number
   static sendMessageToMe(name, mobileNumber, pickupAddress, dropAddress) {
@@ -22,7 +22,7 @@ class InitiateWhatsApp {
       return;
     }
     const message = encodeURIComponent(
-      `Booking Inquiry: Customer Locatons - ${name}\nMobile Number - ${mobileNumber}\nPickup Address - ${pickupAddress}\nDrop Address - ${dropAddress}`
+      `Inquiry: Customer Name - ${name}\nMobile Number - ${mobileNumber}\nPickup Address - ${pickupAddress}\nDrop Address - ${dropAddress}`
     );
     
     const whatsappURL = `https://wa.me/${process.env.REACT_APP_WHATSAPP_NUMBER}?text=${message}`;

@@ -1,6 +1,5 @@
 import React from "react";
 import HeroSection from "./HeroSection";
-import HowItWorks from "./HowItWorks";
 import Toprentedcars from "./Toprentedcars";
 
 

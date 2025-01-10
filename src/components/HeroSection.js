@@ -1,13 +1,10 @@
 import React, { useRef } from "react";
 import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
-import confirmbooking from "./confirmbooking";
-import { useNavigate } from "react-router-dom";
 import car_img from "../assets/jeep.png";
 import { motion } from "framer-motion";
 import HowItWorks from "./HowItWorks";
 
 const HeroSection = () => {
-  const navigate = useNavigate();
   const howItWorksRef = useRef(null);
 
   const scrollToHowItWorks = () => {

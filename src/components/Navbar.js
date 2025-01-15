@@ -18,6 +18,7 @@ const Navbar = () => {
   };
 
   const handleWhatsAppClick = () => {
+
     InitiateWhatsApp.sendMessageToSelf(
       "Hey, I want to book a rented car. My details are as follows:\n- Name: [Customer Name]\n- Rental Dates: [Start Date] to [End Date]\n- Preferred Car: [Car Model or Type]\nPlease let me know the next steps."
     );
@@ -25,6 +26,14 @@ const Navbar = () => {
 
   const handleCallClick = () => {
     InitiateCall.dialNumber();
+
+    // You can pass customer name if required, e.g., "John Doe"
+    InitiateWhatsApp.sendMessageToSelf("Online from sanchi car rental");
+  };
+
+  const handleCallClick = () => {
+    InitiateCall.dialNumber(); // Trigger the call function
+
   };
 
   return (
@@ -42,6 +51,7 @@ const Navbar = () => {
 
       {/* Desktop Navigation Links */}
       <div className="hidden md:flex items-center space-x-6 z-20">
+
         <button
           onClick={handleNavigation}
           className="text-gray-600 text-lg font-semibold hover:text-button"
@@ -65,6 +75,18 @@ const Navbar = () => {
           href="#contact"
           className="text-gray-600 text-lg font-semibold hover:text-button"
         >
+
+        <a href="#home" className="text-gray-600 text-lg font-semibold hover:text-button">
+          Home
+        </a>
+        <a href="#info" className="text-gray-600 text-lg font-semibold hover:text-button">
+          Services
+        </a>
+        <a href="#about" className="text-gray-600 text-lg font-semibold hover:text-button">
+          About us
+        </a>
+        <a href="#contact" className="text-gray-600 text-lg font-semibold hover:text-button">
+
           Contact us
         </a>
       </div>
@@ -73,6 +95,7 @@ const Navbar = () => {
       <div className="hidden md:flex items-center space-x-4 z-20">
         <button
           onClick={handleWhatsAppClick}
+
           className="bg-green-500 text-white text-sm px-4 py-2 rounded-full flex items-center"
         >
           <FaWhatsapp className="text-lg mr-2" />
@@ -84,6 +107,19 @@ const Navbar = () => {
         >
           <FaPhoneAlt className="mr-2" />
           Call Now
+
+          className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-gray-900 text-black rounded hover:bg-button hover:border-button hover:text-white"
+        >
+          <FaWhatsapp className="text-xl self-auto" />
+          <span>WhatsApp</span>
+        </button>
+        <button
+          onClick={handleCallClick}
+          className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-button bg-button text-black rounded hover:bg-button hover:text-white"
+        >
+          <FiPhoneCall className="text-xl" />
+          <span>Call Us</span>
+
         </button>
       </div>
 
@@ -98,6 +134,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="absolute top-[80px] left-0 w-full bg-white shadow-lg z-10 p-5">
           <div className="flex flex-col items-center space-y-4">
+
             <button
               onClick={handleNavigation}
               className="text-gray-600 text-sm font-semibold hover:text-button"
@@ -120,21 +157,47 @@ const Navbar = () => {
               href="#contact"
               className="text-gray-600 text-sm font-semibold hover:text-button"
             >
+
+            <a href="#home" className="text-gray-600 text-lg font-semibold hover:text-button">
+              Home
+            </a>
+            <a href="#info" className="text-gray-600 text-lg font-semibold hover:text-button">
+              Services
+            </a>
+            <a href="#about" className="text-gray-600 text-lg font-semibold hover:text-button">
+              About us
+            </a>
+            <a href="#contact" className="text-gray-600 text-lg font-semibold hover:text-button">
+
               Contact us
             </a>
             <button
               onClick={handleCallClick}
+
               className="bg-button text-white text-sm px-4 py-2 rounded-full flex items-center"
             >
               <FaPhoneAlt className="mr-2" />
               Call Now
+
+              className="flex items-center space-x-2 px-6 py-2 text-lg bg-button text-black rounded hover:bg-button hover:border-button hover:text-white"
+            >
+              <FiPhoneCall className="text-xl" />
+              <span>Call Us</span>
+
             </button>
             <button
               onClick={handleWhatsAppClick}
+
               className="bg-green-500 text-white text-sm px-4 py-2 rounded-full flex items-center"
             >
               <FaWhatsapp className="text-lg mr-2" />
               WhatsApp Now
+
+              className="flex items-center space-x-2 px-6 py-2 text-lg border-2 border-black text-black rounded hover:bg-button hover:border-button hover:text-white"
+            >
+              <FaWhatsapp className="text-xl self-auto" />
+              <span>WhatsApp</span>
+
             </button>
           </div>
         </div>

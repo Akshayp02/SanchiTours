@@ -9,13 +9,9 @@ class InitiateWhatsApp {
 
     // The message content
     const message = encodeURIComponent(
-      `Inquiry: ${customerName}`
+      `Inquiry: Customer Name - ${customerName}`
     );
     const whatsappURL = `https://wa.me/${process.env.REACT_APP_WHATSAPP_NUMBER}?text=${message}`;
-
-    window.open(whatsappURL, '_blank');
-    }
-
     window.location.href = whatsappURL;
   }
 
@@ -32,7 +28,6 @@ class InitiateWhatsApp {
     const whatsappURL = `https://wa.me/${process.env.REACT_APP_WHATSAPP_NUMBER}?text=${message}`;
     window.location.href = whatsappURL;
   }
-
 }
 
 export default InitiateWhatsApp;

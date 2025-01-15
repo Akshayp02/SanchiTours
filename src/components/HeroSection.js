@@ -64,7 +64,7 @@ const HeroSection = () => {
 
         {/* Right Content (Car Image) */}
         <div className="flex justify-center md:justify-start items-center mt-10 md:mt-0 z-10 w-full md:w-auto">
-          <div className=" h-full w-full md:w-[400px] md:h-[400px] relative">
+          <div className="w-96 h-60 md:w-[600px] md:h-[400px]">
             <img
               src={car_img}
               alt="Car"

@@ -27,7 +27,7 @@ const Navbar = () => {
         <img src={fev_icon} alt="Sanchi Logo" className="h-24 w-auto" />
       </div>
 
-      {/* Desktop Navigation Links */}
+      {/* Desktop Navigation Link */}
       <div className="hidden md:flex items-center space-x-6 z-20">
         <a href="#home" className="text-gray-600 text-lg font-semibold hover:text-button">
           Home

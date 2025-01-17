@@ -40,7 +40,7 @@ const Navbar = () => {
         />
       </div>
 
-      {/* Desktop Navigation Links */}
+      {/* Desktop Navigation Link */}
       <div className="hidden md:flex items-center space-x-6 z-20">
         <button
           onClick={handleNavigation}

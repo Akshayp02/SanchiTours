@@ -15,15 +15,17 @@ const Footer = () => {
             At Sanchi CAR RENTAL, we offer more than just a ride. With a focus on reliability, safety, and affordability, we treat every passenger like family, ensuring your journey is smooth, comfortable, and hassle-free every time.
           </p>
           {/* Social Media Icons */}
-          <div className="flex space-x-4 justify-self-start sm:justify-center">
-            <FaFacebookF className="hover:text-yellow-500 cursor-pointer" size={20} />
-            <FaTwitter className="hover:text-yellow-500 cursor-pointer" size={20} />
-            <FaInstagram className="hover:text-yellow-500 cursor-pointer" size={20} />
-            <FaLinkedin className="hover:text-yellow-500 cursor-pointer" size={20} />
-          </div>
-        </div>
+                <div className="flex space-x-4 justify-self-start sm:justify-center">
+                <a href="https://www.instagram.com/sanchicarrental?igsh=a2FyNGNjMmN0ajJn" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram className="hover:text-yellow-500 cursor-pointer" size={20} />
+                </a>
+                <FaFacebookF className="hover:text-yellow-500 cursor-pointer" size={20} />
+                <FaTwitter className="hover:text-yellow-500 cursor-pointer" size={20} />
+                <FaLinkedin className="hover:text-yellow-500 cursor-pointer" size={20} />
+                </div>
+              </div>
 
-        {/* Contact Section */}
+              {/* Contact Section */}
         <div className="space-y-4 sm:px-12">
           <h3 className="text-xl font-bold relative pb-2">
             Contact

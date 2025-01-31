@@ -15,6 +15,7 @@ function App() {
         <main className="flex-grow relative z-10">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/booking" element={<Booking />} />
           </Routes>
         </main>

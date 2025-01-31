@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "./HeroSection";
 import Toprentedcars from "./Toprentedcars";
+import AboutUs from "./aboutus";
 
 
 const HomePage = () => {
@@ -9,6 +10,7 @@ const HomePage = () => {
       <main className="flex-grow">
         <HeroSection />
         <Toprentedcars/>
+        <AboutUs/>
       </main>      
     </div>
   );

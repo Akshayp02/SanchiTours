@@ -8,7 +8,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();  // Safe to use now because Navbar is inside BrowserRouter
+  const location = useLocation();  
 
   // Set background color for the Navbar dynamically based on the route
   const navbarBgColor = location.pathname === "/booking" ? "bg-white" : "bg-transparent";
@@ -64,13 +64,9 @@ const Navbar = () => {
           className="text-gray-600 text-lg font-semibold hover:text-button"
         >
           About us
+          
         </a>
-        <a
-          href="#contact"
-          className="text-gray-600 text-lg font-semibold hover:text-button"
-        >
-          Contact us
-        </a>
+       
       </div>
 
       {/* Desktop Buttons */}

@@ -3,6 +3,7 @@ import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 import car_img from "../assets/jeep.png";
 import { motion } from "framer-motion";
 import HowItWorks from "./HowItWorks";
+import Mostpopular from "./Mostpopular";
 
 const HeroSection = () => {
   const howItWorksRef = useRef(null);
@@ -29,12 +30,14 @@ const HeroSection = () => {
             {/* Vertical Line Above Icons */}
             <div className="w-[2px] h-16 bg-gray-400"></div>
 
-            {/* Icons */}
-            <FaInstagram className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
-            <FaTwitter className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
-            <FaFacebookF className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
+          {/* Icons */}
+                  <a href="https://www.instagram.com/sanchicarrental?igsh=a2FyNGNjMmN0ajJn" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
+                  </a>
+                  <FaTwitter className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
+                  <FaFacebookF className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
 
-            {/* Vertical Line Below Icons */}
+                  {/* Vertical Line Below Icons */}
             <div className="w-[2px] h-16 bg-gray-400"></div>
           </div>
 
@@ -77,8 +80,12 @@ const HeroSection = () => {
       {/* How It Works Section */}
       <div ref={howItWorksRef}>
         <HowItWorks />
+        <Mostpopular />
       </div>
+
+      
     </>
+    
   );
 };
 

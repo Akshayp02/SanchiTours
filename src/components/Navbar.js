@@ -3,11 +3,15 @@ import { FaBars, FaTimes, FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import fev_icon from "../assets/sanchi_fev.png";
 import InitiateWhatsApp from "../services/initiatewhatsapp";
 import InitiateCall from "../services/initiatecall";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();  // Safe to use now because Navbar is inside BrowserRouter
+
+  // Set background color for the Navbar dynamically based on the route
+  const navbarBgColor = location.pathname === "/booking" ? "bg-white" : "bg-transparent";
 
   const handleNavigation = () => {
     navigate('/');
@@ -28,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative flex justify-between items-center h-[80px] p-5 bg-white z-20">
+    <nav className={`relative flex justify-between items-center h-[80px] p-5 ${navbarBgColor} md:${navbarBgColor} z-20`}>
       {/* Logo */}
       <div className="flex items-center z-20">
         <img
@@ -40,7 +44,7 @@ const Navbar = () => {
         />
       </div>
 
-      {/* Desktop Navigation Link */}
+      {/* Desktop Navigation Links */}
       <div className="hidden md:flex items-center space-x-6 z-20">
         <button
           onClick={handleNavigation}
@@ -116,12 +120,6 @@ const Navbar = () => {
             >
               About us
             </a>
-            <a
-              href="#contact"
-              className="text-gray-600 text-sm font-semibold hover:text-button"
-            >
-              Contact us
-            </a>
             <button
               onClick={handleCallClick}
               className="bg-button text-white text-sm px-4 py-2 rounded-full flex items-center"
@@ -139,12 +137,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-
-      {/* Right-Side Rectangle */}
-      <div
-        className="absolute right-0 top-0 bottom-0 h-full w-[450px] bg-[#19746B] z-10 hidden md:block"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-      ></div>
     </nav>
   );
 };

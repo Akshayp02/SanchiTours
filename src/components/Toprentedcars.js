@@ -27,7 +27,7 @@ const cars = [
     price: "₹22/km",
     ac: true,
     bag: "2 bags",
-    exclusions: ["Driver Allowance : Y", "Toll Tax : Y", "Parking : Y"],
+    exclusions: ["Driver Food : Y", "Toll Tax : Y", "Parking : Y"],
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ const cars = [
     price: "₹15/km",
     ac: true,
     bag: "2 bags",
-    exclusions: ["Driver Allowance : Y", "Toll Tax : Y", "Parking : Y"],
+    exclusions: [ "Toll Tax : Y", "Parking : Y"],
   },
 
   {
@@ -50,7 +50,7 @@ const cars = [
     price: "₹12/km",
     ac: true,
     bag: "2 bags",
-    exclusions: ["Driver Allowance : Y", "Toll Tax : Y", "Parking : Y"],
+    exclusions: [ "Toll Tax : Y", "Parking : Y"],
   },
 
   {
@@ -62,7 +62,7 @@ const cars = [
     price: "₹12/km",
     ac: true,
     bag: "2 bags",
-    exclusions: ["Driver Allowance : Y", "Toll Tax : Y", "Parking : Y"],
+    exclusions: [ "Toll Tax : Y", "Parking : Y"],
   },
 
   {
@@ -74,7 +74,7 @@ const cars = [
     price: "₹20/km",
     ac: true,
     bag: "2 bags",
-    exclusions: ["Driver Allowance : Y", "Toll Tax : Y", "Parking : Y"],
+    exclusions: [ "Toll Tax : Y", "Parking : Y"],
   },
   {
     id: 6,
@@ -85,18 +85,18 @@ const cars = [
     price: "₹12/km",
     ac: true,
     bag: "2 bags",
-    exclusions: ["Driver Allowance : Y", "Toll Tax : Y", "Parking : Y"],
+    exclusions: [ "Toll Tax : Y", "Parking : Y"],
   },
   {
     id: 7,
     name: "Cruiser",
     image: Cruiser,
-    seats: "14+1",
+    seats: "13+1",
     type: "Manual",
-    price: "₹20/km",
+    price: "₹19/km",
     ac: true,
     bag: "2 bags",
-    exclusions: ["Driver Allowance : Y", "Toll Tax : Y", "Parking : Y"],
+    exclusions: [ "Toll Tax : Y", "Parking : Y"],
   },
 ];
 

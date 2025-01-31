@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import CarList from "./CarList"
 
 const HowItWorks = () => {
   const cities = [
-    "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Kolhapur", 
+    "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Kolhapur",
     "Solapur", "Amravati", "Thane", "Akola", "Ahmednagar", "Chandrapur",
     "Jalgaon", "Parbhani", "Goa", "Latur", "Nanded", "Ratnagiri",
     "Sangli", "Satara", "Wardha", "Yavatmal", "Dhule", "Jalna",
@@ -10,6 +12,7 @@ const HowItWorks = () => {
     "Trimbakeshwar", "Shirdi", "Lonavala", "Mahabaleshwar", "Panchgani"
   ];
 
+  const navigate = useNavigate();
   const [journeyType, setJourneyType] = useState("Onward");
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
@@ -17,12 +20,40 @@ const HowItWorks = () => {
   const [dropSearch, setDropSearch] = useState("");
   const [showPickupDropdown, setShowPickupDropdown] = useState(false);
   const [showDropDropdown, setShowDropDropdown] = useState(false);
+  const [journeyDate, setJourneyDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [journeyTime, setJourneyTime] = useState(""); // Added journey time state
 
-  const handleJourneyChange = (type) => setJourneyType(type);
+  const handleSearch = () => {
+    if (!pickup || !drop || !journeyDate || !journeyTime) {
+      alert("Please fill all required fields.");
+      return;
+    }
+    navigate("/booking", {
+      state: {
+        journeyType,
+        pickup,
+        drop,
+        journeyDate,
+        journeyTime, 
+        returnDate: journeyType === "Return" ? returnDate : null,
+      },
+    });
+  };
+
+  const handleJourneyChange = (type) => {
+    setJourneyType(type);
+    if (type === "Onward") {
+      setDrop(""); // Reset drop location for onward journey
+    }
+  };
 
   const handlePickupChange = (city) => {
     setPickup(city);
     setShowPickupDropdown(false);
+    if (journeyType === "Onward") {
+      setDrop(""); // Reset drop location when pickup changes for onward journey
+    }
   };
 
   const handleDropChange = (city) => {
@@ -30,10 +61,14 @@ const HowItWorks = () => {
     setShowDropDropdown(false);
   };
 
+  const filteredCitiesForDrop = journeyType === "Onward"
+    ? cities.filter((city) => city !== pickup)
+    : cities;
+
   return (
     <div className="bg-white py-3 px-5">
       <h1 className="text-center text-2xl font-bold mb-8">Book Your Perfect Ride!</h1>
-     
+
       {/* Journey Type Toggle */}
       <div className="flex justify-center mb-8">
         <div className="flex gap-8">
@@ -47,9 +82,7 @@ const HowItWorks = () => {
               className="hidden"
             />
             <span
-              className={`px-4 py-2 rounded-md ${
-                journeyType === "Onward" ? "bg-button text-white" : "bg-gray-200"
-              }`}
+              className={`px-4 py-2 rounded-md ${journeyType === "Onward" ? "bg-button text-white" : "bg-gray-200"}`}
             >
               Onward Journey
             </span>
@@ -64,9 +97,7 @@ const HowItWorks = () => {
               className="hidden"
             />
             <span
-              className={`px-4 py-2 rounded-md ${
-                journeyType === "Return" ? "bg-button text-white" : "bg-gray-200"
-              }`}
+              className={`px-4 py-2 rounded-md ${journeyType === "Return" ? "bg-button text-white" : "bg-gray-200"}`}
             >
               Return Journey
             </span>
@@ -80,10 +111,11 @@ const HowItWorks = () => {
         <div className="relative w-full max-w-sm">
           <label className="block text-lg font-semibold mb-2">From City</label>
           <div
-            className="px-4 py-2 border rounded-md cursor-pointer"
+            className="px-4 py-2 border rounded-md cursor-pointer flex items-center justify-between"
             onClick={() => setShowPickupDropdown((prev) => !prev)}
           >
             {pickup || "Select Pickup Location"}
+            <span className="ml-2" style={{ color: "#FE9A03FC" }}>▼</span> {/* Color changed */}
           </div>
           {showPickupDropdown && (
             <div className="absolute z-10 bg-white border rounded-md shadow-lg w-full mt-2 max-h-60 overflow-y-auto">
@@ -96,9 +128,7 @@ const HowItWorks = () => {
               />
               <ul>
                 {cities
-                  .filter((city) =>
-                    city.toLowerCase().includes(pickupSearch.toLowerCase())
-                  )
+                  .filter((city) => city.toLowerCase().includes(pickupSearch.toLowerCase()))
                   .map((city, index) => (
                     <li
                       key={index}
@@ -117,10 +147,11 @@ const HowItWorks = () => {
         <div className="relative w-full max-w-sm">
           <label className="block text-lg font-semibold mb-2">To City</label>
           <div
-            className="px-4 py-2 border rounded-md cursor-pointer"
+            className="px-4 py-2 border rounded-md cursor-pointer flex items-center justify-between"
             onClick={() => setShowDropDropdown((prev) => !prev)}
           >
             {drop || "Select Drop Location"}
+            <span className="ml-2" style={{ color: "#FE9A03FC" }}>▼</span> {/* Color changed */}
           </div>
           {showDropDropdown && (
             <div className="absolute z-10 bg-white border rounded-md shadow-lg w-full mt-2 max-h-60 overflow-y-auto">
@@ -132,10 +163,8 @@ const HowItWorks = () => {
                 className="w-full px-4 py-2 border-b"
               />
               <ul>
-                {cities
-                  .filter((city) =>
-                    city.toLowerCase().includes(dropSearch.toLowerCase())
-                  )
+                {filteredCitiesForDrop
+                  .filter((city) => city.toLowerCase().includes(dropSearch.toLowerCase()))
                   .map((city, index) => (
                     <li
                       key={index}
@@ -156,14 +185,30 @@ const HowItWorks = () => {
           <input
             type="date"
             className="w-full px-4 py-2 border rounded-md"
+            value={journeyDate}
+            onChange={(e) => setJourneyDate(e.target.value)}
           />
         </div>
+
+        {/* Journey Time */}
+        <div className="w-full max-w-sm">
+          <label className="block text-lg font-semibold mb-2">Journey Time</label>
+          <input
+            type="time"
+            className="w-full px-4 py-2 border rounded-md"
+            value={journeyTime}
+            onChange={(e) => setJourneyTime(e.target.value)}
+          />
+        </div>
+
         {journeyType === "Return" && (
           <div className="w-full max-w-sm">
             <label className="block text-lg font-semibold mb-2">Return Date</label>
             <input
               type="date"
               className="w-full px-4 py-2 border rounded-md"
+              value={returnDate}
+              onChange={(e) => setReturnDate(e.target.value)}
             />
           </div>
         )}
@@ -171,7 +216,10 @@ const HowItWorks = () => {
 
       {/* Search Button */}
       <div className="flex justify-center mt-8">
-        <button className="px-6 py-2 font-sans text-base text-justify text-black rounded-md shadow-md : bg-gray-200 hover:bg-button hover:text-white">
+        <button
+          className="px-6 py-2 font-sans text-base text-black rounded-md shadow-md bg-gray-200 hover:bg-button hover:text-white"
+          onClick={handleSearch}
+        >
           Search
         </button>
       </div>

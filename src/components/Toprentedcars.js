@@ -127,7 +127,7 @@ const TopRentedCars = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-pretty">
+      <h2 className="text-3xl font-semibold text-center mb-8">
         Our Top Rated Rented Cars
       </h2>
       <div className="overflow-x-auto whitespace-nowrap scrollbar-custom">

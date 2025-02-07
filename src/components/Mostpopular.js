@@ -28,6 +28,7 @@ const MostPopular = () => {
         InitiateCall.dialNumber();
       };
   return (
+    
     <div className="py-8">
       <h2 className="text-3xl font-semibold text-center mb-8">
         Most Popular Destinations

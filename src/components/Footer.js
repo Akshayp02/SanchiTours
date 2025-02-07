@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram, FaTwitter, FaFacebookF, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,9 +19,12 @@ const Footer = () => {
                 <a href="https://www.instagram.com/sanchicarrental?igsh=a2FyNGNjMmN0ajJn" target="_blank" rel="noopener noreferrer">
                   <FaInstagram className="hover:text-yellow-500 cursor-pointer" size={20} />
                 </a>
+                <a href="https://www.facebook.com/share/15o8FDvByP/" target="_blank" rel="noopener noreferrer">
                 <FaFacebookF className="hover:text-yellow-500 cursor-pointer" size={20} />
-                <FaTwitter className="hover:text-yellow-500 cursor-pointer" size={20} />
-                <FaLinkedin className="hover:text-yellow-500 cursor-pointer" size={20} />
+                </a>
+                <a href="https://x.com/sanchicarrental" target="_blank" rel="noopener noreferrer">
+                 <FaTwitter className="hover:text-yellow-500 cursor-pointer" size={20} />
+                 </a>
                 </div>
               </div>
 

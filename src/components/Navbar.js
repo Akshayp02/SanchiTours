@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes, FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
-import fev_icon from "../assets/sanchi_fev.png";
+import fev_icon from "../assets/sanchi_fev.jpg";
 import InitiateWhatsApp from "../services/initiatewhatsapp";
 import InitiateCall from "../services/initiatecall";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ onScroll }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();  
+  const location = useLocation();
 
   // Set background color for the Navbar dynamically based on the route
-  const navbarBgColor = location.pathname === "/booking" ? "bg-white" : "bg-transparent";
+  const navbarBgColor =
+    location.pathname === "/booking" ? "bg-white" : "bg-transparent";
 
   const handleNavigation = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const toggleMenu = () => {
@@ -32,7 +33,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`relative flex justify-between items-center h-[80px] p-5 ${navbarBgColor} md:${navbarBgColor} z-20`}>
+    <nav
+      className={`relative flex justify-between items-center h-[80px] p-5 ${navbarBgColor} md:${navbarBgColor} z-20`}
+    >
       {/* Logo */}
       <div className="flex items-center z-20">
         <img
@@ -53,20 +56,18 @@ const Navbar = () => {
         >
           Home
         </button>
-        <a
-          href="#info"
+        <button
+          onClick={() => onScroll("cars")}
           className="text-gray-600 text-lg font-semibold hover:text-button"
         >
           Services
-        </a>
-        <a
-          href="#about"
+        </button>
+        <button
+          onClick={() => onScroll("about")}
           className="text-gray-600 text-lg font-semibold hover:text-button"
         >
           About us
-          
-        </a>
-       
+        </button>
       </div>
 
       {/* Desktop Buttons */}
@@ -104,18 +105,18 @@ const Navbar = () => {
             >
               Home
             </button>
-            <a
-              href="#info"
+            <button
+              onClick={() => onScroll("cars")}
               className="text-gray-600 text-sm font-semibold hover:text-button"
             >
               Services
-            </a>
-            <a
-              href="#about"
+            </button>
+            <button
+              onClick={() => onScroll("about")}
               className="text-gray-600 text-sm font-semibold hover:text-button"
             >
               About us
-            </a>
+            </button>
             <button
               onClick={handleCallClick}
               className="bg-button text-white text-sm px-4 py-2 rounded-full flex items-center"

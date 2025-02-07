@@ -237,7 +237,7 @@ const CarList = () => {
         "4+1": 3200,
         "6+1": {
           "All including": 3900,
-          Ertiga: 3900,
+          Ertiga: 4000,
           "Toyota Innova": 4200,
           "Innova Crysta": 4500,
         },

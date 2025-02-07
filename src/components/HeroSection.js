@@ -34,9 +34,12 @@ const HeroSection = () => {
                   <a href="https://www.instagram.com/sanchicarrental?igsh=a2FyNGNjMmN0ajJn" target="_blank" rel="noopener noreferrer">
                     <FaInstagram className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
                   </a>
+                  <a href="https://x.com/sanchicarrental" target="_blank" rel="noopener noreferrer">
                   <FaTwitter className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
+                  </a>
+                  <a href="https://www.facebook.com/share/15o8FDvByP/" target="_blank" rel="noopener noreferrer">
                   <FaFacebookF className="text-white md:text-gray-800 hover:text-gray-300 md:hover:text-button cursor-pointer" size={28} />
-
+</a>
                   {/* Vertical Line Below Icons */}
             <div className="w-[2px] h-16 bg-gray-400"></div>
           </div>

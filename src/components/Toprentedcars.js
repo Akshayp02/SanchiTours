@@ -185,7 +185,7 @@ const TopRentedCars = () => {
         </div>
       </div>
 
-      {/* Dialog Box for Details */}
+      {/* Dialog Box for Details to all*/}
       {selectedCar && !bookingOption && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 w-full sm:w-96 max-h-[calc(100vh-2rem)] overflow-y-auto relative">
